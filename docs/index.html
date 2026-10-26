@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; script-src &#39;self&#39;; style-src &#39;unsafe-inline&#39;; connect-src &#39;self&#39;; img-src &#39;none&#39;; form-action &#39;none&#39;; base-uri &#39;none&#39;"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CopyPreflight · Local evaluation</title>
+<style>
+  :root{font:16px/1.5 system-ui,sans-serif;color:#17252a;background:#f4f6f5}body{max-width:1100px;margin:40px auto;padding:0 24px}h1{font-size:32px;margin-bottom:4px}p{max-width:850px}small{color:#4b626b}button{font:inherit;padding:9px 16px;border:1px solid #9baeb1;border-radius:6px;background:white;cursor:pointer}button.primary{background:#135c50;color:white;border-color:#135c50}button:hover{filter:brightness(.95)}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.editors{display:grid;grid-template-columns:1fr 1fr;gap:20px}label{display:block;font-weight:600}textarea{box-sizing:border-box;width:100%;height:260px;padding:14px;border:1px solid #9baeb1;border-radius:6px;font:13px/1.6 ui-monospace,monospace;white-space:pre;background:#fff}input{display:block;margin:8px 0;max-width:100%}.status{margin-top:24px;padding:16px;background:#e0e9e6;border-left:4px solid #135c50;font-weight:600}.status.invalid,.status.incomplete{background:#f9e8dd;border-color:#a64b10}table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th,td{padding:10px;text-align:left;border-bottom:1px solid #c7d3d0;vertical-align:top}footer{margin-top:28px;color:#4b626b;font-size:14px}@media(max-width:700px){.editors{grid-template-columns:1fr}body{margin:20px auto;padding:0 16px}textarea{height:220px}table{font-size:12px}th,td{padding:6px}}
+</style>
+<body>
+<small>TECHNICAL SPIKE · LOCAL EVALUATION · NO BILLING</small>
+<h1>CopyPreflight</h1>
+<p>Check a small PostgreSQL CSV COPY profile before touching a database. Quotation-aware NULL checks, exact decimal int4/int8 boundaries, and original physical line positions.</p>
+<p><small>Runs in this browser using the same core as the CLI and VS Code command. Selected files stay in memory; no upload or persistence. A valid result covers only the supported profile, not database constraints or import success.</small></p>
+<div class="bar"><button id="failure">Load failing sample</button><button id="success">Load passing sample</button><button id="clear">Clear</button><button class="primary" id="check">Check locally</button></div>
+<div class="editors">
+<div><label for="csv">CSV</label><input id="csv-file" type="file" accept=".csv"><textarea id="csv" maxlength="5242880" autocomplete="off" spellcheck="false" aria-label="CSV text"></textarea></div>
+<div><label for="profile">Saved import profile</label><input id="profile-file" type="file" accept=".json"><textarea id="profile" maxlength="65536" autocomplete="off" spellcheck="false" aria-label="Profile JSON"></textarea></div>
+</div>
+<div class="status" role="status" id="status">Load a synthetic sample, then check locally.</div>
+<table><thead><tr><th>Physical line</th><th>Column</th><th>Field</th><th>Code</th><th>Reason</th></tr></thead><tbody id="diagnostics"></tbody></table>
+<footer>Supported: UTF-8, comma, double quote/escape, consistent LF/CRLF/CR record endings, quoted newlines, text/int4/int8, NOT NULL, NULL token, FORCE_NULL and FORCE_NOT_NULL. Unsupported settings or limits stop the check. No DB connection, remote service, LLM, billing or automatic edits.</footer>
+<script src="./core.js"></script><script src="./demo.js"></script>
+</body></html>
