@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "format": "csv",
+  "encoding": "utf-8",
+  "delimiter": ",",
+  "quote": "\"",
+  "escape": "\"",
+  "header": true,
+  "null": "",
+  "forceNull": [],
+  "forceNotNull": [],
+  "columns": [
+    { "name": "note", "type": "text", "notNull": true },
+    { "name": "count", "type": "int4" },
+    { "name": "large", "type": "int8" }
+  ]
+}
