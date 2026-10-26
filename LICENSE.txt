@@ -1,0 +1,19 @@
+CopyPreflight evaluation build — evaluation permission
+
+Copyright 2026. All rights reserved.
+Distributed under the Ambivra brand by the rights holder.
+
+You may install and use this version free of charge to evaluate its documented features.
+No purchase, subscription, card entry, or future payment obligation is created.
+This permission does not license a future paid product or grant the right to
+resell this software or claim ownership of it. No open source license is granted.
+
+This limited prototype is provided as is for evaluation, without a warranty of
+fitness, import success, correctness for unsupported rules, or continuous support.
+Use synthetic examples first. Do not rely on it as the sole control for a
+production import. It does not check database state, permissions, triggers,
+foreign keys, or other unsupported conditions.
+
+Any mandatory rights under applicable law and the terms of the distribution
+platform remain unaffected. You can stop evaluating and uninstall at any time.
+The build has no automatic charge or silent conversion to a paid license.
